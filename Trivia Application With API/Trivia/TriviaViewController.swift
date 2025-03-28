@@ -27,19 +27,10 @@ class TriviaViewController: UIViewController {
     addGradient()
     questionContainerView.layer.cornerRadius = 8.0
     // TODO: FETCH TRIVIA QUESTIONS HERE
-    fetchTriviaQuestions()
   }
-    private func fetchTriviaQuestions() {
-        TriviaQuestionService.fetchTriviaQuestions { [weak self] fetchedQuestions in
-            guard let self = self, let fetchedQuestions = fetchedQuestions else { return }
-            self.questions = fetchedQuestions
-            self.updateQuestion(withQuestionIndex: 0)
-        }
-    }
   
   private func updateQuestion(withQuestionIndex questionIndex: Int) {
     currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questions.count)"
-    
     let question = questions[questionIndex]
     questionLabel.text = question.question
     categoryLabel.text = question.category

@@ -7,22 +7,9 @@
 
 import Foundation
 
-struct TriviaResponse: Decodable{
-    let results: [TriviaQuestion]
-}
-
-struct TriviaQuestion: Decodable{
+struct TriviaQuestion {
   let category: String
   let question: String
   let correctAnswer: String
   let incorrectAnswers: [String]
-    
-  private enum CodingKeys: String, CodingKey {
-            case category
-            case question
-            case correctAnswer = "correct_answer"
-            case incorrectAnswers = "incorrect_answers"
-        }
-
 }
-
